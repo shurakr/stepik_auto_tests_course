@@ -23,6 +23,8 @@ def browser(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
     browser = None
+    if not user_language:
+        raise pytest.UsageError("--language should be ru, en, fr, es, etc.")
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         options = Options()
