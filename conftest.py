@@ -31,6 +31,7 @@ def browser(request):
         options.add_experimental_option(
             "prefs", {"intl.accept_languages": user_language}
         )
+        options.page_load_strategy = "eager"
         browser = webdriver.Chrome(options=options)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
